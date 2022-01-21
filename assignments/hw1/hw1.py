@@ -22,11 +22,20 @@ def calc_rec_area():
     #prints the area
 
 def calc_volume():
-    pass
+    length = eval(input("Enter the length: "))
+    width = eval(input("Enter the width: "))
+    height = eval(input("Enter the height: "))
+    volume = length * height * width
+    print("Volume =", volume)
+
+
 
 
 def shooting_percentage():
-    pass
+    total_shots = eval(input("Enter the payers total shots: "))
+    made_shots = eval(input("Enter how many shots the player made: "))
+    shoot_percent = (made_shots / total_shots) * 100
+    print("Shooting percentage: ", shoot_percent, "%")
 
 
 def coffee():
