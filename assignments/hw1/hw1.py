@@ -1,6 +1,6 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Ethan Kidwell
+hw1.py
 
 Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
 
@@ -12,8 +12,14 @@ I certify that this assignment is my own work, but I discussed it with: <Name(s)
 
 
 def calc_rec_area():
-    pass
-
+    length = eval(input("Enter the Length: "))
+    #Gets the length from the user
+    width = eval(input("Enter the width: "))
+    #Gets the width from the user
+    area = length * width
+    #Does the equation to find area
+    print("Area =", area)
+    #prints the area
 
 def calc_volume():
     pass
