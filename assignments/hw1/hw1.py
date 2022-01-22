@@ -2,7 +2,7 @@
 Name: Ethan Kidwell
 hw1.py
 
-Problem: In this assignment you must make simple problem-solving programs. These include one to calculate
+Problem: In this assignment you must make simple problem-solving programs. Including to calculate
 the area and volume of a rectangle, shooting percentage, coffee per pound, and kilometers to miles.
 Certification of Authenticity:
 
