@@ -2,12 +2,12 @@
 Name: Ethan Kidwell
 hw1.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
-
+Problem: In this assignment you must make simple problem-solving programs. These include one to calculate
+the area and volume of a rectangle, shooting percentage, coffee per pound, and kilometers to miles.
 Certification of Authenticity:
-<include one of the following>
+
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+
 """
 
 
@@ -39,12 +39,14 @@ def shooting_percentage():
 
 
 def coffee():
-    pass
+    coffee_pounds = eval(input("How many pounds of coffee would you like? "))
+    price = (coffee_pounds * 11.36) + 1.50
+    print("Your total is $", price)
 
 
 def kilometers_to_miles():
-    pass
-
-
+    kilometer = eval(input("How many kilometers did you travel? "))
+    mile = kilometer / 1.61
+    print("You traveled", mile, "!")
 if __name__ == '__main__':
     pass
