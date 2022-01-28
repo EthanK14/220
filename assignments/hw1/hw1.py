@@ -47,6 +47,6 @@ def coffee():
 def kilometers_to_miles():
     kilometer = eval(input("How many kilometers did you travel? "))
     mile = kilometer / 1.61
-    print("You traveled", mile, "!")
+    print("You traveled", mile, "miles!")
 if __name__ == '__main__':
     pass
