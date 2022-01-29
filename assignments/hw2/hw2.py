@@ -2,9 +2,9 @@
 Name: Ethan Kidwell
 hw2.py
 
-Problem: To make different functions' computer different equations. These being sum of numbers by threes,
-making a multiplication table, computing area of a triangle, sum of square roots, and creating a
-function to raise some number to a power
+Problem: To make different functions' computer different equations. These being sum of numbers by
+threes, making a multiplication table, computing area of a triangle, sum of square roots,
+and creating a function to raise some number to a power
 
 Certification of Authenticity:
 
@@ -26,7 +26,10 @@ def sum_of_threes():
 
 
 def multiplication_table():
-    pass
+    for top in range(1, 11):
+        print("\n")
+        for side in range(1, 11):
+            print(top * side, end=" ")
 
 
 def triangle_area():
@@ -34,8 +37,9 @@ def triangle_area():
     side_b = eval(input("Enter side B: "))
     side_c = eval(input("Enter side C: "))
     step_one = (side_a + side_b + side_c) / 2
-    step_two = math.sqrt(step_one* ((step_one - side_a)*(step_one - side_b)*(step_one - side_c)))
-    print("The area is: ",step_two)
+    step_two = math.sqrt(step_one * ((step_one - side_a) * (step_one - side_b) * (step_one - side_c)))
+    print("The area is: ", step_two)
+
 
 def sum_squares():
     lower_range = eval(input("Enter lower range: "))
