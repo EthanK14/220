@@ -29,7 +29,7 @@ def multiplication_table():
     for top in range(1, 11):
         print("\n")
         for side in range(1, 11):
-            print(top * side, end=" ")
+            print(top * side, end="\t")
 
 
 def triangle_area():
