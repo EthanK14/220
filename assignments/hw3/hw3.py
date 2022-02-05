@@ -30,15 +30,31 @@ def tip_jar():
 
 
 def newton():
-    pass
+    square_root = eval(input("Please enter your square root: "))
+    approximate = square_root
+    square_approx = eval(input("How many times should we improve the approximation? "))
+    for root in range(square_approx):
+        approximate = .5 * (approximate + square_root / approximate)
+    print(approximate)
 
 
 def sequence():
-    pass
+    seq_num = eval(input("How many terms would you like? "))
+    for seq in range(1, seq_num + 1):
+        odd_nums = (seq - 1) + (seq % 2)
+        print(odd_nums, end=" ")
 
 
 def pi():
-    pass
+    term_num = eval(input("How many terms in the series? "))
+    acc = 1
+    for pi_loop in range(term_num):
+        numerator_seq = pi_loop + (2 - (pi_loop % 2))
+        denominator_seq = pi_loop + (1 + (pi_loop % 2))
+        acc = acc * (numerator_seq / denominator_seq)
+    pi_approx = acc * 2
+    print(pi_approx)
+
 
 
 if __name__ == '__main__':
