@@ -24,32 +24,45 @@ def squares():
 
     # create a space to instruct user
     inst_pt = Point(width / 2, height - 10)
-    instructions = Text(inst_pt, "Click to move circle")
+    instructions = Text(inst_pt, "Click to draw more squares")
     instructions.draw(win)
 
-    # builds a circle
-    shape = Circle(Point(50, 50), 20)
+    # builds the orginal square
+    shape = Rectangle(Point(20, 20), Point(70, 70))
     shape.setOutline("red")
     shape.setFill("red")
     shape.draw(win)
 
-    # allows the user to click multiple times to move the circle
+    # allows the user to click multiple times to draw squares
     for i in range(num_clicks):
         click = win.getMouse()
-        center = shape.getCenter()  # center of circle
 
-        # move amount is distance from center of circle to the
-        # point where the user clicked
-        change_x = click.getX() - center.getX()
-        change_y = click.getY() - center.getY()
-        shape.move(change_x, change_y)
+        # Creates new parameters for the rectangle location
+        change_x = click.getX()
+        change_y = click.getY()
+        # Creates the new squares the user draws
+        new_square = Rectangle(Point(change_x, change_y), Point(change_x + 50, change_y + 50))
+        new_square.setOutline("red")
+        new_square.setFill("red")
+        new_square.draw(win)
 
+    # Replaces the original text for click anywhere to end and ends the program
+    instructions.setText("Click anywhere to end")
     win.getMouse()
     win.close()
 
 
 def rectangle():
-    pass
+    win = GraphWin("Rectangle", 400, 400)
+    point_acc_per = 0
+    # point_acc_area = 1
+    for rec in range(5):
+        point = win.getMouse()
+        point_x = point.getX()
+        point_y = point.getY()
+        point_acc_per = point_acc_per + (point_y - point_x)
+
+
 
 
 def circle():
