@@ -1,13 +1,15 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Ethan Kidwell
+hw4.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: Create a window that allows you to place five squares and have them stay, have a window
+that allows a user to creat a rectangle and find the area and perimeter of that rectangle,
+create a window that allows a user to draw and circle and display the radius of that circle,
+create a function that calculates pi to a specified about of terms.
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+
 """
 
 from graphics import *
@@ -70,7 +72,8 @@ def rectangle():
 
     # calculations for area and perimeter
     side_1 = (point_x_2 - point_x)  # gets side length
-    side_2 = (point_y_2 - point_y)  # gets side length off the same point as the first length ensuring a different side
+    side_2 = (point_y_2 - point_y)  # gets side length off the same point as the first length
+    # ensuring a different side
     perimeter = (side_1 * 2) + (side_2 * 2)
     area = side_1 * side_2
 
@@ -136,10 +139,10 @@ def pi2():
     for i in range(1, num_terms + 2, 2):
         pi_approx = pi_approx + (change * (4 / denominator))
         denominator = denominator + 2
-        change = change * - 1
+        change = change * (-1)
 
     # gets accuracy from difference of true pi
-    accuracy = (pi_approx - math.pi)
+    accuracy = abs(pi_approx - math.pi)
 
     # Prints results
     print("Pi approximation: ", pi_approx)
