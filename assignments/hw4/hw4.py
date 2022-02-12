@@ -107,7 +107,6 @@ def circle():
     p_2_x = point_2.getX()
     p_2_y = point_2.getY()
     middle_point = Point(p_1_x, p_1_y)
-    half_diameter = p_2_x - p_1_x
     # Calculations of the circle
     x_values = (p_2_x - p_1_x) ** 2
     y_values = (p_2_y - p_1_y) ** 2
@@ -136,13 +135,13 @@ def pi2():
     denominator = 1
     change = 1
     # Loop to calculate approximation
-    for i in range(1, num_terms + 2, 2):
+    for i in range(num_terms):
         pi_approx = pi_approx + (change * (4 / denominator))
         denominator = denominator + 2
-        change = change * (-1)
+        change = change * - 1
 
     # gets accuracy from difference of true pi
-    accuracy = abs(pi_approx - math.pi)
+    accuracy = abs(math.pi - pi_approx)
 
     # Prints results
     print("Pi approximation: ", pi_approx)
