@@ -34,7 +34,7 @@ def company_name():
 def initials():
     num_students = eval(input("How many students are in the class?"))
     for i in range(num_students):
-        student_name = input("What is the name of the student?")
+        student_name = input("What is the name of student{}?").format(i)
         first_initial = student_name[0]
         space = student_name.find(" ")
         last_initial = space + 1
@@ -56,18 +56,45 @@ def names():
     print(initial_list)
 
 
-
-
 def thirds():
-    pass
+    # gets # of sentences
+    num_sentence = eval(input("Enter the number of sentences: "))
+    sen_list = []  # accumulator for every third character per sentence
+
+    # gathers each sentence and add every third to list above
+    for sen in range(num_sentence):
+        sentence = input("Enter the sentence: ")
+        length = len(sentence)  # gets length of string to know the last element
+        third_let = sentence[0:length:3]
+        sen_list.append(third_let)
+    third_words = "\n".join(sen_list)
+    print(third_words)
 
 
 def word_average():
-    pass
+    sentence = input("Enter a sentence: ")
+
+    # adds the sentence to a list
+    sentence_list = sentence.split(" ")
+    acc = 0  # accumulator to add total word lengths
+    for i in sentence_list:
+        acc = len(i) + acc  # finds length of each word then adds to accumulator
+    average = acc / len(sentence_list)  # finds average
+    print(average)
 
 
 def pig_latin():
-    pass
+    sentence = input("Enter a sentence or a story: ")
+    sen_list = sentence.split(' ')
+    pig_list = []
+    for i in sen_list:
+        first_let = i[0]  # gets the first character
+        length = len(i)  # gets the length of the word to exclude first character
+        pig_say = i[1:length] + first_let + "ay"  # creates the pig latin word of each sentence
+        pig_list.append(pig_say)  # adds it to empty list to form new sentence
+    pig_up = ' '.join(pig_list)  # joins them all back into a string
+    pig_down = pig_up.lower()  # moves all characters to lower case
+    print(pig_down)  # prints results
 
 
 if __name__ == '__main__':
