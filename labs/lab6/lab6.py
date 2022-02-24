@@ -53,6 +53,7 @@ def vigenere():
     message = message.upper()
     keyword = keyword.upper()
     message = message.replace(" ", "")
+    keyword = keyword.replace(" ", "")
 
     # computes the cypher
     new_message = ""
