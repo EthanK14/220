@@ -72,6 +72,8 @@ def weighted_average(in_file_name, out_file_name):
 
             # Write results to the output file
             average_file.write(name_w_grade)
+    grade_file.close()
+    average_file.close()
 
 
 def main():
