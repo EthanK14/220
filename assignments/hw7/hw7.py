@@ -89,12 +89,12 @@ def send_safe_message(file_name, friend_name, key):
 
 def send_uncrackable_message(file_name, friend_name, pad_file_name):
     in_file = open(file_name, 'r')
-    key = open(pad_file_name, 'r')
+    key = open(pad_file_name, 'r').read()
     key_format = key
     file_name = "{}.txt".format(friend_name)
     out_file = open(file_name, 'w')
     for message in in_file:
-        new_message = encode_better(message[:-1], key_format)
+        new_message = encode_better(message, key_format)
         print(new_message, file=out_file)
 
 
