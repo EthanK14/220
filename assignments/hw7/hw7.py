@@ -2,10 +2,10 @@
 Name: Ethan Kidwell
 hw7.py
 
-Problem: Create a program that numbers the words in a file and list them, tha raises each employee's pay by 1.65
-and calculate that weeks pay, a calculator that gets the check sum of a ISBN,
-that changes the name of the file to that of the recipient, sends a secret message to a friend,
-creates a file with an uncrackable message to a friend.
+Problem: Create a program that numbers the words in a file and list them, that
+raises each employee's pay by 1.65 and calculate that weeks pay, a calculator that gets the check
+sum of a ISBN,that changes the name of the file to that of the recipient,
+sends a secret message to a friend, creates a file with an uncrackable message to a friend.
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
@@ -93,9 +93,10 @@ def send_uncrackable_message(file_name, friend_name, pad_file_name):
     key_format = key
     file_name = "{}.txt".format(friend_name)
     out_file = open(file_name, 'w')
-    read = in_file.read()
-    new_message = encode_better(read, key_format)
-    print(new_message[:-1], file=out_file)
+    for message in in_file:
+        new_message = encode_better(message[:-1], key_format)
+        print(new_message, file=out_file)
+
 
 
 if __name__ == '__main__':
