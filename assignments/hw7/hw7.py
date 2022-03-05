@@ -95,7 +95,7 @@ def send_uncrackable_message(file_name, friend_name, pad_file_name):
     out_file = open(file_name, 'w')
     for message in in_file:
         new_message = encode_better(message, key_format)
-        print(new_message, file=out_file)
+        print(new_message, end="", file=out_file)
 
 
 

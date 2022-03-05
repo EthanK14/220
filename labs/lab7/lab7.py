@@ -2,7 +2,7 @@
 Ethan Kidwell
 lab7.py
 
-Problem: Create a program that takes a input file of student grades and
+Problem: Create a program that takes an input file of student grades and
 calculated the average based on their weight and percentage and
 then writes the results to an output file.
 
@@ -12,7 +12,7 @@ I certify that this assignment is entirely my own work.
 
 
 def weighted_average(in_file_name, out_file_name):
-    grade_file = open(in_file_name, 'r')  # remember grades.close()
+    grade_file = open(in_file_name, 'r')
     average_file = open(out_file_name, 'w')
     # loop through the open file to get grade total for each student
     for line in grade_file:

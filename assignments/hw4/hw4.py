@@ -30,7 +30,7 @@ def squares():
     instructions = Text(inst_pt, "Click to draw more squares")
     instructions.draw(win)
 
-    # builds the orginal square
+    # builds the original square
     shape = Rectangle(Point(20, 20), Point(70, 70))
     shape.setOutline("red")
     shape.setFill("red")

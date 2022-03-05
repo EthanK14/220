@@ -30,7 +30,6 @@ def vigenere():
     result_mess = Text(Point(250, 200), "Resulting Message:")
     result_text = Text(Point(250, 225), " ")
     close_text = Text(Point(250, 280), " ")
-    temp_res = Text(Point(250, 250), " ")
 
     # draws all objects to the window
     message_text.draw(win)
@@ -42,7 +41,6 @@ def vigenere():
     result_mess.draw(win)
     result_text.draw(win)
     close_text.draw(win)
-    temp_res.draw(win)
 
     # gets text box text
     win.getMouse()

@@ -82,8 +82,6 @@ def encode_better():
     print(new_message)
 
 
-
-
 if __name__ == '__main__':
     # cash_converter()
     # encode()

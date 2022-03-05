@@ -150,7 +150,7 @@ def process_string():
     sequences = input("Enter a string: ")
     print("First character:", sequences[0])
     print("Last character:", sequences[-1])
-    print("Characters in positions 2 - 5:", sequences[1:5])
+    print("Characters in positions 2 - 5:", sequences[0:5])
     print("Concatenations of first and last: ", sequences[1] + sequences[-1])
     print("First three 10 times: ", sequences[0:3] * 10)
     for i in sequences:
