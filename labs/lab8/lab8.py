@@ -24,10 +24,12 @@ def did_collide(circle_ball, circle_ball_2):
     circles_rad = circle_1_rad + circle_2_rad
     circle_1_center = circle_ball.getCenter()
     circle_2_center = circle_ball_2.getCenter()
-    circle_1_x, circle_1_y = circle_1_center.getX(), circle_1_center.getY()
-    circle_2_x, circle_2_y = circle_2_center.getX(), circle_2_center.getY()
+    circle_1_x = circle_1_center.getX()
+    circle_1_y = circle_1_center.getY()
+    circle_2_x = circle_2_center.getX()
+    circle_2_y = circle_2_center.getY()
     circle_distance = sqrt(((circle_2_x - circle_1_x) ** 2)+((circle_2_y - circle_1_y) ** 2))
-    if circle_distance >= circles_rad:
+    if circle_distance <= circles_rad:
         return True
     else:
         return False
@@ -36,11 +38,11 @@ def did_collide(circle_ball, circle_ball_2):
 def hit_vertical(circle_ball, graphwin):
     circle_rad = circle_ball.getRadius()
     win_height = graphwin.getHeight()
-    rad_dif = circle_rad - win_height  # finds the length between radius and top or bottom
-    rad_dis = win_height - rad_dif  # finds the length of the radius
-    # circle_1_center = circle_ball.getCenter()
-    # circle_1_x, circle_1_y = circle_1_center.getX(), circle_1_center.getY()
-    if circle_rad <= rad_dis:
+    circle_center = circle_ball.getCenter()
+    circle_y = circle_center.getY()
+    if circle_y == (win_height - circle_rad):
+        return True
+    elif circle_y == circle_rad:
         return True
     else:
         return False
@@ -49,9 +51,11 @@ def hit_vertical(circle_ball, graphwin):
 def hit_horizontal(circle_ball, graphwin):
     circle_rad = circle_ball.getRadius()
     win_width = graphwin.getWidth()
-    rad_dif = circle_rad - win_width  # finds the length between radius and top or bottom
-    rad_dis = win_width - rad_dif  # finds the length of the radius
-    if circle_rad <= rad_dis:
+    circle_center = circle_ball.getCenter()
+    circle_x = circle_center.getX()
+    if circle_x == (win_width - circle_rad):
+        return True
+    elif circle_x == circle_rad:
         return True
     else:
         return False
@@ -92,24 +96,28 @@ def bumper():
     circle_2.draw(win)
 
     # moves the circles
-    while True:
-        ran_move = get_random(10)
-        circle_1.move(10, 10)
-        circle_2.move(10, 10)
-        time.sleep(.5)
+    move_x_1 = 1
+    move_y_1 = 1
+    move_x_2 = 1
+    move_y_2 = 1
+    while not win.checkMouse():
+        circle_1.move(move_x_1, move_y_1)
+        circle_2.move(move_x_2, move_y_2)
+        time.sleep(.001)
         if hit_vertical(circle_1, win):
-                circle_1.move(-ran_move, ran_move)
-                circle_1.move(ran_move, -ran_move)
+            move_y_1 = move_y_1 * -1
+        elif hit_horizontal(circle_1, win):
+            move_x_1 = move_x_1 * -1
+        elif hit_vertical(circle_2, win):
+            move_y_2 = move_y_2 * -1
+        elif hit_horizontal(circle_2, win):
+            move_x_2 = move_x_2 * -1
+        elif did_collide(circle_1, circle_2):
+            move_x_1 = move_x_1 * -1
+            move_y_1 = move_y_1 * -1
+            move_x_2 = move_x_2 * -1
+            move_y_2 = move_y_2 * -1
 
-
-        # if did_collide(circle_1, circle_2):
-
-
-
-
-    # click_close = Text(Point(win.getWidth() / 2, win.getHeight() / ), "Click anywhere to close")
-    # click_close.draw(win)
-    win.getMouse()
     win.close()
 
 
