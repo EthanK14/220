@@ -6,7 +6,9 @@ Problem: Write a program that adds 10 to each element of a list,
 squares each element of a list, adds each element of a list,
 converts a list of strings to number,
 takes a list of strings converts them to numbers and then squares them
-and adds them together,
+and adds them together, finds out if a wrestler can be on the team,
+determines if a year is a leap year,
+determines if two circles drawn by the user overlap.
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
