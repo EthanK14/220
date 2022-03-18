@@ -14,7 +14,7 @@ I certify that this assignment is my own work, but I discussed it with:
 """
 
 import math
-import graphics
+from graphics import GraphWin, Circle, Text, Point
 
 
 def add_ten(nums):
@@ -33,7 +33,7 @@ def sum_list(nums):
     num_len = len(nums)
     num_total = 0
     incr = 0
-    for i in range(num_len):
+    for _ in range(num_len):
         num_total = num_total + nums[incr]
         incr = incr + 1
     return num_total
@@ -45,8 +45,6 @@ def to_numbers(nums):
         nums[incr] = float(num_string)
         incr = incr + 1
 
-
-# nums = ['1, 2, 3', '4, 5, 6']
 
 def sum_of_squares(nums):
     # accumulator for finding total of squares
@@ -76,7 +74,7 @@ def sum_of_squares(nums):
             num_list[number] = num_list[number] ** 2
 
         # totals the squared values into a single element
-        for i in range(num_len):
+        for _ in range(num_len):
             num_total = num_total + num_list[incr_2]
             incr_2 = incr_2 + 1
 
@@ -87,11 +85,25 @@ def sum_of_squares(nums):
 
 
 def starter(weight, wins):
-    pass
+    over_150 = weight >= 150
+    under_160 = weight < 160
+    over_199 = weight > 199
+    win_5 = wins >= 5
+    win_20 = wins > 20
+    if (over_150 and win_5) and (under_160 and win_5):
+        return True
+    if over_199 or win_20:
+        return True
+    return False
 
 
 def leap_year(year):
-    pass
+    divide_by_4 = year % 4
+    divide_by_100 = year % 100
+    divide_by_400 = year % 400
+    if (divide_by_400 == 0) or (divide_by_100 != 0) and (divide_by_4 == 0):
+        return True
+    return False
 
 
 def circle_overlap():
@@ -102,20 +114,48 @@ def circle_overlap():
     height = 10
     win.setCoords(0, 0, width, height)
 
-    center = win.getMouse()
+    # circle 1
+    center_1 = win.getMouse()
     circumference_point = win.getMouse()
-    radius = math.sqrt(
-        (center.getX() - circumference_point.getX()) ** 2 + (center.getY() - circumference_point.getY()) ** 2)
-    circle_one = Circle(center, radius)
+    circle_1_x = (center_1.getX() - circumference_point.getX()) ** 2
+    circle_1_y = (center_1.getY() - circumference_point.getY()) ** 2
+    radius = math.sqrt(( circle_1_x + circle_1_y))
+    circle_one = Circle(center_1, radius)
     circle_one.setFill("light blue")
     circle_one.draw(win)
 
+    # circle 2
+    center_2 = win.getMouse()
+    circumference_point_2 = win.getMouse()
+    circle_2_x = (center_2.getX() - circumference_point_2.getX()) ** 2
+    circle_2_y = (center_2.getY() - circumference_point_2.getY()) ** 2
+    radius_2 = math.sqrt(circle_2_x + circle_2_y)
+    circle_two = Circle(center_2, radius_2)
+    circle_two.setFill("light pink")
+    circle_two.draw(win)
+    if did_overlap(circle_one, circle_two):
+        overlapped = Text(Point(5,2), "They do overlap")
+        overlapped.draw(win)
+    not_overlap = Text(Point(5,2), "They do not overlap")
+    not_overlap.draw(win)
     win.getMouse()
 
 
 def did_overlap(circle_one, circle_two):
-    pass
+    circle_1_rad = circle_one.getRadius()
+    circle_2_rad = circle_two.getRadius()
+    circles_rad = circle_1_rad + circle_2_rad
+    circle_1_center = circle_one.getCenter()
+    circle_2_center = circle_two.getCenter()
+    circle_1_x = circle_1_center.getX()
+    circle_1_y = circle_1_center.getY()
+    circle_2_x = circle_2_center.getX()
+    circle_2_y = circle_2_center.getY()
+    circle_distance = math.sqrt(((circle_2_x - circle_1_x) ** 2) + ((circle_2_y - circle_1_y) ** 2))
+    if circle_distance <= circles_rad:
+        return True
+    return False
 
 
 if __name__ == '__main__':
-    pass
+    print(leap_year(0))
