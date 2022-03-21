@@ -11,8 +11,7 @@ determines if a year is a leap year,
 determines if two circles drawn by the user overlap.
 
 Certification of Authenticity:
-I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with:
+I certify that this assignment is my own work, but I discussed it with: Thomas Scola
 """
 
 import math
