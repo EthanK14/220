@@ -6,7 +6,7 @@ Problem: Write a program that simulates two bumper cars that when they collide t
 nuance off in different directions.
 
 Certification of Authenticity:
-I certify that this assignment is entirely my own work.
+I certify that this assignment is my own work, but I discussed it with: Thomas Scola
 """
 import time
 from random import randint
@@ -103,7 +103,7 @@ def bumper():
     while not win.checkMouse():
         circle_1.move(move_x_1, move_y_1)
         circle_2.move(move_x_2, move_y_2)
-        time.sleep(.001)
+        time.sleep(.00000000001)
         if hit_vertical(circle_1, win):
             move_y_1 = move_y_1 * -1
         elif hit_horizontal(circle_1, win):
