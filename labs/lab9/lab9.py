@@ -1,15 +1,22 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Ethan Kidwell
+lab9.py
+
+Problem: Build a tic-tac-toe game that instructs the user how to play and
+then determines the winner.
+
+Certificate of Authenticity:
+I certify that this assignment is my own work, but I discussed it with: Brooke in CSL 
 """
 
 
 def build_board():
-    pass
+    board_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    return board_list
 
 
 def print_board(board):
-    """ prints the values of baord """
+    """ prints the values of board """
     RED = "\033[1;31m"
     BLUE = "\033[1;36m"
     LIGHT_GRAY = "\033[0;37m"
@@ -37,31 +44,136 @@ def print_board(board):
 
 
 def is_legal(board, position):
-    pass
+    bord_check = str(board[position - 1]).isnumeric()
+    return bord_check
 
 
 def fill_spot(board, position, character):
-    pass
+    board[position - 1] = character
 
 
 def winning_game(board):
-    pass
+    # accumulator variable
+    position = 0
+
+    # checks the horizontal range on the board
+    for horizontal in range(3):
+
+        # checks if x's or o's have 3 in a row
+        if ord(str(board[position])) == ord(str(board[position + 1])) == ord(str(board[position + 2])):
+            return True
+        position = position + 3
+
+    # restates accumulators for vertical checks
+    position = 0
+
+    # checks the vertical values
+    for vertical in range(3):
+        if ord(str(board[position])) == ord(str(board[position + 3])) == ord(str(board[position + 6])):
+            return True
+        position = position + 1
+
+    # these all check the cross sections
+    if ord(str(board[2])) == ord(str(board[4])) == ord(str(board[6])):
+        return True
+    if ord(str(board[0])) == ord(str(board[4])) == ord(str(board[8])):
+        return True
+    return False
+
+
+test_list = [1,2,3,4,5,6,7,8,9]
 
 
 def game_over(board):
-    pass
+    if winning_game(board):
+        return True
+    acc = 0
+    if_number = 0
+    for game in range(len(board)):
+        if not str(board[game]).isnumeric():
+            if_number = if_number + 1
+        acc = acc + 1
+    if if_number == 9:
+        return True
+    return False
 
 
 def get_winner(board):
-    pass
+    # accumulator variables
+    position = 0
+    position_o = 0
+
+    # checks the horizontal range on the board
+    for horizontal in range(3):
+
+        # checks if x's have 3 in a row
+        if (ord(str(board[position])) + ord(str(board[position + 1])) + ord(str(board[position + 2]))) == 360:
+            return 'x'
+        position = position + 3
+
+        # checks if o's have 3 in a row
+        if (ord(str(board[position_o])) and ord(str(board[position_o + 1])) and ord(str(board[position_o + 2]))) == 333:
+            return 'o'
+        position_o = position_o + 3
+
+        # restates accumulators for vertical checks
+        position = 0
+        position_o = 0
+
+        # checks if x's have 3 in a column
+        if (ord(str(board[position])) + ord(str(board[position + 3])) + ord(str(board[position + 6]))) == 360:
+            return 'x'
+        position = position + 1
+
+        # checks if o's have 3 in a column
+        if (ord(str(board[position_o])) and ord(str(board[position_o + 3])) and ord(str(board[position_o + 6]))) == 333:
+            return 'o'
+        position_o = position_o + 1
+
+    # these all check the cross sections
+    if (ord(str(board[2])) and ord(str(board[4])) and ord(str(board[6]))) == 360:
+        return 'x'
+    if (ord(str(board[2])) and ord(str(board[4])) and ord(str(board[6]))) == 333:
+        return 'o'
+    if (ord(str(board[0])) and ord(str(board[4])) and ord(str(board[8]))) == 360:
+        return 'x'
+    if (ord(str(board[0])) and ord(str(board[4])) and ord(str(board[8]))) == 333:
+        return 'o'
+    return False
 
 
 def play(board):
-    pass
+
+    while not game_over(board):
+        print_board(board)
+        player_num = 0
+        for player in range(2):
+            if player_num == 0:
+                position = eval(input("x's choose their position: "))
+                if is_legal(board, position):
+                    fill_spot(board, position, 'x')
+                    print_board(board)
+                    if get_winner(board) == 'x':
+                        print("x wins!!!!")
+                        break
+            if player_num == 1:
+                position = eval(input("o's choose their position: "))
+                if is_legal(board, position):
+                    fill_spot(board, position, 'o')
+                    print_board(board)
+                    if get_winner(board) == 'o':
+                        print("o wins!!!!")
+                        break
+            player_num = player_num + 1
 
 
 def main():
-    pass
+    user_input = "y"
+    while user_input[0] == 'y':
+        board = build_board()
+        play(board)
+        user_input = input("do you want to play again? ")
+        user_input = user_input.lower()
 
 
 if __name__ == '__main__':
