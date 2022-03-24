@@ -13,6 +13,7 @@ I certify that this assignment is entirely my own work.
 
 from math import pi
 
+
 def cash_converter():
     cash = eval(input("Enter a integer:"))
     cash = float(cash)
@@ -38,7 +39,7 @@ def sphere_area(radius):
 
 
 def sphere_volume(radius):
-    volume = ((radius ** 3) * pi) * (4/3)
+    volume = ((radius ** 3) * pi) * (4 / 3)
     return volume
 
 
