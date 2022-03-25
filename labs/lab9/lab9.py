@@ -3,7 +3,7 @@ Name: Ethan Kidwell
 lab9.py
 
 Problem: Build a tic-tac-toe game that instructs the user how to play and
-then determines the winner.
+then determines the winner and ask if you want to play again.
 
 Certificate of Authenticity:
 I certify that this assignment is my own work, but I discussed it with: Brooke in CSL 
