@@ -7,7 +7,7 @@ def get_words(file_name):
     word_list = []  # creates new word list for the words from the file
     acc = 0  # accumulator for looping through file
     for word in txt_file:  # loop to go through the file and adds it to a list
-        word_list = word_list[acc] + word  # adds the word to the list
+        word_list.append(word)  # adds the word to the list
         acc = acc + 1
     return word_list  # returns the list
 
@@ -32,31 +32,28 @@ def already_guessed(letter, guesses):
     for guess in guesses:
         if guess == letter:
             return True
-    else:
-        return False
+    return False
 
 
 def make_hidden_secret(secret_word, guesses):
     # accumulator to loop through the index for the secret word
 
-    new_word = secret_word
+    new_word = []
+    secret_word_len = len(secret_word)
+    for _ in range(secret_word_len):
+        new_word.append('_ ')
+
     # loops through the secret word to check it against the guessed list
 
-    for letter in new_word:
+    for letter in range(secret_word_len):
         # checks the letter against all the letters in the guessed list
-        acc = 0
         for guessed in guesses:
 
-            # actually does the checking of the list
-            if not (ord(guessed) - ord(letter)):
-                new_word = new_word.replace(new_word[acc], letter)
-
             # adds the _ if no guess was that letter
-            elif ord(guessed) - ord(letter):
-                new_word = new_word.replace(new_word[acc], '_')
+            if ord(guessed) - ord(secret_word[letter]) == 0:
+                new_word[letter] = guessed + ' '
         # makes sure the correct letter is replaced either by the correctly guessed letter or the _
-            acc = acc + 1
-    return new_word
+    return ''.join(new_word).rstrip()
 
 
 def won(guessed):
@@ -81,11 +78,18 @@ def play_graphics(secret_word):
 def play_command_line(secret_word):
     num_of_guess = 6
     guesses_list = []
-    len_secret_word = len(secret_word)
-    for solve in range(len_secret_word):
+    while won(guesses_list):
+        hidden_word = make_hidden_secret(secret_word, guesses_list)
+        if won(hidden_word):
+            print("Player Won!!! :D The Secret Word was {}".format(secret_word))
+            print(hidden_word)
+            break
+        if num_of_guess == 0:
+            print("Sorry you ran out of guesses. :'( The secret word was {}".format(secret_word))
+            print(hidden_word)
+            break
         print("Already guessed: {}".format(guesses_list))
         print("Number of guesses left: {}".format(num_of_guess))
-        hidden_word = make_hidden_secret(secret_word, guesses_list)
         print(hidden_word)
         letter_input = input("Enter a letter to guess: ")
         if already_guessed(letter_input, guesses_list):
@@ -93,16 +97,14 @@ def play_command_line(secret_word):
         elif letter_in_secret_word(letter_input, secret_word):
             guesses_list.append(letter_input)
             # hidden_word = make_hidden_secret
-        elif won(hidden_word):
-            print("Player Won!!! :D The Secret Word was {}".format(secret_word))
-        elif num_of_guess == 0:
-            print("Sorry you ran out of guesses. :'( The secret word was {}".format(secret_word))
+
         elif not letter_in_secret_word(letter_input, secret_word):
             num_of_guess = num_of_guess - 1
+            guesses_list.append(letter_input)
 
 
 
 if __name__ == '__main__':
-    pass
-    # play_command_line("secret word")
+
+    play_command_line("secret")
     # play_graphics(secret_word)
