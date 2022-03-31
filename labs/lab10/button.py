@@ -1,3 +1,13 @@
+"""
+Name: Ethan Kidwell
+Problem: Create a program that uses button.py and door.py to create a
+opening and closing door.
+
+Certificate of Authenticity:
+Certification of Authenticity:
+I certify that this assignment is entirely my own work, and I disused it with: Brooks (CSL)
+"""
+
 from graphics import Text
 
 
