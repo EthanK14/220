@@ -1,4 +1,6 @@
-from graphics import Rectangle, Point, Text
+from graphics import Text
+
+
 class Button:
     def __init__(self, shape, label):
         self.rectangle = shape
@@ -27,7 +29,7 @@ class Button:
         y_2 = p_2.getY()
         point_x = point_clicked.getX()
         point_y = point_clicked.getY()
-        if ((x_1 <= point_x) or (x_2 >= point_x)) and (y_1 <= point_y or y_2 >= point_y):
+        if (x_1 <= point_x and x_2 >= point_x) and (y_1 <= point_y and y_2 >= point_y):
             return True
         return False
 

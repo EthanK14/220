@@ -5,22 +5,40 @@ from graphics import Rectangle, Point, Text, GraphWin
 
 def main():
     length = 800
-    height = 600
+    height = 700
     win = GraphWin("Door", length, height)
+    win.setBackground('white')
 
-    exit_rectangle = Rectangle(Point(300, 100), Point(600, 100))
+    exit_rectangle = Rectangle(Point(250, 100), Point(600, 150))
     exit_button = Button(exit_rectangle, "Exit")
     exit_button.draw(win)
-
-    door_rectangle = Rectangle(Point(300, 300), Point(600, 500))
-    door_made = Door(door_rectangle, "Open")
-    user_click = win.getMouse()
+    door_rectangle = Rectangle(Point(250, 200), Point(600, 650))
+    door_made = Door(door_rectangle, "CLOSED")
+    door_made.color_door('red')
     door_made.draw(win)
-    if exit_button.is_clicked(user_click):
-        win.close()
-    if door_made.is_clicked(user_click):
-        door_made.open('white', 'OPEN')
-        door_made.draw(win)
+    user_click = win.getMouse()
+    door_state = 0
+    while not exit_button.is_clicked(user_click):
+        if door_made.is_clicked(user_click):
+            if door_state == 0:
+                door_made.undraw()
+                door_made.color_door('white')
+                door_made.set_label('OPEN')
+                door_made.draw(win)
+                door_state = 1
+
+            elif door_state == 1:
+                door_made.undraw()
+                door_made.color_door('red')
+                door_made.set_label('CLOSED')
+                door_made.draw(win)
+                door_state = 0
+
+        user_click = win.getMouse()
+    win.close()
+
+
+
 
 
 if __name__ == '__main__':
