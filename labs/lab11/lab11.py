@@ -4,7 +4,6 @@ Problem: Create a game that uses both button and door classes to create a game w
 you have to guess the correct door from three doors and keeps tracks of
 your wins and loses.
 
-
 Certificate of Authenticity:
 I certify that this assignment is entirely my own work
 """
