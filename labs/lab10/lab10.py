@@ -4,7 +4,6 @@ Problem: Create a program that uses button.py and door.py to create a
 opening and closing door.
 
 Certificate of Authenticity:
-Certification of Authenticity:
 I certify that this assignment is entirely my own work, and I disused it with: Brooks (CSL)
 """
 
@@ -43,13 +42,10 @@ def main():
                 door_made.set_label('CLOSED')
                 door_made.draw(win)
                 door_state = 0
-
         user_click = win.getMouse()
     win.close()
 
 
-
-
-
 if __name__ == '__main__':
-    main()
+    # main()
+    pass

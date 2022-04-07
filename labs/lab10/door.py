@@ -4,7 +4,6 @@ Problem: Create a program that uses button.py and door.py to create a
 opening and closing door.
 
 Certificate of Authenticity:
-Certification of Authenticity:
 I certify that this assignment is entirely my own work, and I disused it with: Brooks (CSL)
 """
 
@@ -15,8 +14,8 @@ class Door:
     def __init__(self, shape, label):
         self.rectangle = shape
         self.text = Text(shape.getCenter(), label)
-        self.secret = 0  # 0 mean secret door is false 1 and above mean it Is secret door
-        self.door_state = 0  # 0 mean close and 1 mean open
+        self.secret = 1  # 0 mean secret door is false 1 and above mean it Is secret door
+        self.door_state = 0 # 0 mean close and 1 mean open
 
     def get_label(self):
         return self.text.getText()
@@ -62,9 +61,9 @@ class Door:
         self.rectangle.setFill(color)
 
     def is_secret(self):
-        if not self.secret:  # if 0 (false) then return it as not secret
-            return False
-        return True
+        if self.secret == 0:  # if 0 then return it as secret
+            return True
+        return False
 
     def set_secret(self, secret_value):
         self.secret = secret_value

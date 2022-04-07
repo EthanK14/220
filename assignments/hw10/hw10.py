@@ -3,8 +3,8 @@ Name: Ethan Kidwell
 Problem: Create a program that will return a number in the fibonacci sequence based on input,
 
 
+
 Certificate of Authenticity:
-Certification of Authenticity:
 I certify that this assignment is entirely my own work
 """
 
