@@ -11,6 +11,7 @@ from random import randint
 from graphics import *
 
 
+
 def get_words(file_name):
     txt_file = open(file_name, 'r')  # opens the file for reading
     word_list = []  # creates new word list for the words from the file
@@ -197,6 +198,6 @@ def play_command_line(secret_word):
 
 
 if __name__ == '__main__':
-    pass
+
     # play_command_line(secret_word)
-    # play_graphics(secret_word)
+    play_graphics('pretty')

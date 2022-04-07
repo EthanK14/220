@@ -10,14 +10,14 @@ I certify that this assignment is entirely my own work, and I disused it with: B
 
 from button import Button
 from door import Door
-from graphics import Rectangle, Point, Text, GraphWin
+from graphics import Rectangle, Point, GraphWin
 
 
 def main():
     length = 800
     height = 700
     win = GraphWin("Door", length, height)
-    win.setBackground('white')
+    win.setBackground('light grey')
 
     exit_rectangle = Rectangle(Point(250, 100), Point(600, 150))
     exit_button = Button(exit_rectangle, "Exit")
