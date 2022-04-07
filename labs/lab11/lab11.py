@@ -20,7 +20,7 @@ def three_door_game():
     length = 800
     height = 600
     win = GraphWin("Three Door Game", length, height)
-    win.setBackground('light blue')
+    win.setBackground('light grey')
 
     # creates the doors rectangles
     door_1_rectangle = Rectangle(Point(150, 250), Point(250, 450))
@@ -31,12 +31,13 @@ def three_door_game():
     exit_rectangle = Rectangle(Point(550, 50), Point(650, 100))
 
     # creates the door objects
+    door_closed_color = 'blue'
     door_1 = Door(door_1_rectangle, 'Door 1')
-    door_1.color_door('grey')
+    door_1.color_door(door_closed_color)
     door_2 = Door(door_2_rectangle, 'Door 2')
-    door_2.color_door('grey')
+    door_2.color_door(door_closed_color)
     door_3 = Door(door_3_rectangle, 'Door 3')
-    door_3.color_door('grey')
+    door_3.color_door(door_closed_color)
 
     # creates the button objects
 
@@ -76,11 +77,11 @@ def three_door_game():
     while not exit_button.is_clicked(user_click):
 
         # draws the doors and resets everything for a new game
-        door_1.color_door('grey')
+        door_1.color_door(door_closed_color)
         door_1.set_label('Door 1')
-        door_2.color_door('grey')
+        door_2.color_door(door_closed_color)
         door_2.set_label('Door 2')
-        door_3.color_door('grey')
+        door_3.color_door(door_closed_color)
         door_3.set_label('Door 3')
 
         # resets text for new game
