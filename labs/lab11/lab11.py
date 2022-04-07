@@ -223,4 +223,5 @@ def three_door_game():
 
 
 if __name__ == '__main__':
-    three_door_game()
+    # three_door_game()
+    pass
