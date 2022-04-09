@@ -24,7 +24,7 @@ class Face:
         self.mouth.draw(window)
 
     def __get_size(self):
-        return  self.head.getRadius()
+        return self.head.getRadius()
 
     def __get_window(self):
         return self.window
@@ -41,9 +41,11 @@ class Face:
         mouth_right.draw(window)
         mouth_left.draw(window)
 
+    def shock(self, window):
+        new_mouth = self.left_eye.clone()
+        self.mouth.undraw()
+        new_mouth.move(self.head.getCenter().getX(), self.__get_size() / 2)
+        new_mouth.draw(window)
 
-    def shock(self):
-        pass
-
-    def wink(self):
+    def wink(self, window):
         pass
