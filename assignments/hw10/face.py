@@ -42,9 +42,13 @@ class Face:
         mouth_left.draw(window)
 
     def shock(self, window):
-        new_mouth = self.left_eye.clone()
+        # new_mouth = self.left_eye.clone()
         self.mouth.undraw()
-        new_mouth.move(self.head.getCenter().getX(), self.__get_size() / 2)
+        point_3 = self.head.getCenter()
+        point_3_x = point_3.getX()
+        point_3_y = point_3.getY()
+        new_mouth = Circle(Point(point_3_x, (self.__get_size() / 2) + point_3_y + 15), 0.15 * self.__get_size())
+        # new_mouth.move(self.head.getCenter().getX(), self.head.getCenter().getY() + 15)
         new_mouth.draw(window)
 
     def wink(self, window):
