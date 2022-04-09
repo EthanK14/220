@@ -71,7 +71,7 @@ def goldbach(num):
 def face_smile():
     win = GraphWin('face', 400, 400)
     face_1 = Face(win, Point(200, 200), 100)
-    face_1.shock(win)
+    face_1.wink(win)
     win.getMouse()
     win.close()
 
