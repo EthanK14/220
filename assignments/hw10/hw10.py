@@ -6,8 +6,8 @@ Certificate of Authenticity:
 I certify that this assignment is entirely my own work
 """
 
+from graphics import GraphWin, Point
 from face import Face
-from graphics import *
 
 def fibonacci(num_seq):
     fib_list = [0, 1]  # creates the begin of the sequence
@@ -61,11 +61,21 @@ def is_prime(num):
         return True
     return False
 
+def get_prime_num():
+    pass
+
 def goldbach(num):
     if num % 2 == 0:
         return None
-    else:
-        pass
+
+    if is_prime(num - 2):
+        new_list = [num - 2, 2]
+        return new_list
+
+    elif is_prime(num - 5):
+        new_list = [num - 5, 5]
+        return new_list
+
 
 
 def face_smile():
