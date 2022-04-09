@@ -61,20 +61,24 @@ def is_prime(num):
         return True
     return False
 
-def get_prime_num():
-    pass
+
+def get_prime_num(num):
+    prime_list = [2]
+    prime_possible = 3
+    end_num = 0
+    while prime_list[end_num] != num:
+        if is_prime(prime_possible):
+            prime_list.append(prime_possible)
+            prime_possible += 1
+        else:
+            prime_possible += 1
+
 
 def goldbach(num):
     if num % 2 == 0:
         return None
 
-    if is_prime(num - 2):
-        new_list = [num - 2, 2]
-        return new_list
 
-    elif is_prime(num - 5):
-        new_list = [num - 5, 5]
-        return new_list
 
 
 
