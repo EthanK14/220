@@ -78,7 +78,13 @@ def goldbach(num):
     if num % 2 == 0:
         return None
 
+    if is_prime(num - 2):
+        new_list = [num - 2, 2]
+        return new_list
 
+    elif is_prime(num - 5):
+        new_list = [num - 5, 5]
+        return new_list
 
 
 
