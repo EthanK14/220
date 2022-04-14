@@ -47,28 +47,32 @@ def hi_lo_game():
     user_guesses_num = 1
     print('You have 7 guesses to guess the number! :D')
     user_guess = eval(input("Guess a number between 1-100: "))
+
     if user_guess == random_num:
         print("You guessed the number!!!")
         print('It took 1 guess!')
         user_guesses_num = 8
-    while user_guesses_num < 7:
+
+    while user_guesses_num < 7 and not user_guess == random_num:
+
         if user_guess < random_num:
             print('Guess is too low')
             user_guesses_num = user_guesses_num + 1
             print('{} guesses left'.format(8 - user_guesses_num))
+
         elif user_guess > random_num:
             print('Guess is too high')
             user_guesses_num = user_guesses_num + 1
             print('{} guesses left'.format(8 - user_guesses_num))
-        elif user_guess == random_num:
-            print("You guessed the number!!!")
-            print('It took {} guesses!'.format(user_guesses_num))
-            user_guesses_num = user_guesses_num + 7
+
         user_guess = eval(input("Guess a number between 1-100: "))
+
     if user_guess != random_num:
         print('You ran out of guess :(')
         print('The number was', random_num)
-
+    elif user_guess == random_num:
+        print("You guessed the number!!!")
+        print('It took {} guesses!'.format(user_guesses_num - 1))
 
 
 if __name__ == '__main__':
