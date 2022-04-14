@@ -82,4 +82,5 @@ if __name__ == '__main__':
     # print(num_list)
     # good_input()
     # num_digits()
-    hi_lo_game()
+    # hi_lo_game()
+    pass
