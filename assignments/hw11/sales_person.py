@@ -53,7 +53,7 @@ class SalesPerson:
         """
         sale_total = 0.0
         for sale in self.sales:
-            sale_total = sale_total + sale
+            sale_total = sale_total + eval(sale)
         return sale_total
 
     def get_sales(self):
@@ -67,7 +67,7 @@ class SalesPerson:
         Checks the employee and see's if their sales total meets the quota value entered
         """
         sale_total = self.total_sales()
-        if sale_total >= quota:
+        if sale_total == quota:
             return True
         return False
 
