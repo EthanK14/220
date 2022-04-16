@@ -125,6 +125,6 @@ class SalesForce:
         sales_list.sort()
         for num in sales_list:
             sales_dict[num] = sales_dict.get(num, 0) + 1
-        items = list(sales_dict.items())
-        return items
-        # return items.sort(key=self.sales_sort, reverse=True)
+
+        return sales_dict
+
