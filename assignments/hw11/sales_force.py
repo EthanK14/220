@@ -43,7 +43,6 @@ class SalesForce:
                 employee.enter_sale(employee_list[num][2][sale])  # adds sales to employee object
             self.sales_people.append(employee)
 
-
     def add_data(self, file_name):
         """
         Imports data from a file with the information of sales people and
@@ -93,16 +92,11 @@ class SalesForce:
             employee_sales = employee.total_sales()
             if top_seller_sales < employee_sales:
                 seller_list.pop(0)
-                seller_list.insert(0 ,employee)
-
+                seller_list.insert(0, employee)
                 top_seller_sales = employee.total_sales()
             elif top_seller_sales == employee_sales:
-
                 seller_list.append(employee)
-
         return seller_list
-
-
 
     def individual_sales(self, employee_id):
         """
@@ -113,11 +107,24 @@ class SalesForce:
                 return employee
         return None
 
-
+    def sales_sort(self, tup):
+        return tup[1]
 
     def get_sale_frequencies(self):
         """
         returns a dictionary where the keys are the sale amounts and the
         values are frequency of that sale amount
         """
-        pass
+        sales_list = []
+        num = 0
+        sales_dict = {}
+        for employee in self.sales_people:
+            for sale in employee.get_sales():
+                sales_list.append(sale)
+                num = num + 1
+        sales_list.sort()
+        for num in sales_list:
+            sales_dict[num] = sales_dict.get(num, 0) + 1
+        items = list(sales_dict.items())
+        return items
+        # return items.sort(key=self.sales_sort, reverse=True)
