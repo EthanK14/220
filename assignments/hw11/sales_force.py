@@ -107,9 +107,6 @@ class SalesForce:
                 return employee
         return None
 
-    def sales_sort(self, tup):
-        return tup[1]
-
     def get_sale_frequencies(self):
         """
         returns a dictionary where the keys are the sale amounts and the
