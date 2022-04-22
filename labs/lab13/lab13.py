@@ -28,17 +28,12 @@ def star_find(file_name):
         nums_changed = star_list.index(str(star_found[4]))
         print('Number of signals found: 5')
         print('Signal values found: {}'.format(star_found[:5]))
-        print('Number of signals searched until five where found: {}'.format(nums_changed))
-        print(len(star_list))
-        # print(star_list.index('4345'))
-    elif acc :
+        print('Number of signals searched until five where found: {}'.format(nums_changed + 1))
+    else:
         print('Number of signals found: {}'.format(acc))
         print('Signal values found: {}'.format(star_found))
 
 
-
-
-
-
 if __name__ == '__main__':
-    star_find('test.txt')
+    # star_find('test.txt')
+    pass

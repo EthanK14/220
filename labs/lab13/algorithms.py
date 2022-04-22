@@ -37,7 +37,43 @@ def is_in_linear(search_val, num_list):
     return False  # if not in list return false
 
 
+def is_in_binary(search_val, values):
+    values.sort()
+    left_index = 0
+    right_index = len(values) - 1
+    # step 2
+    while left_index <= right_index:
+        middle_index = (right_index + left_index) // 2
+        middle_value = values[middle_index]
+        if middle_value == search_val:
+            return middle_index
+        elif middle_value < search_val:
+            left_index = middle_index + 1
+        else:
+            right_index = middle_index - 1
+    return -1
+
+
+def selection_sort(nums):
+    n = len(nums)
+    for bottom in range(n-1):
+        mp = bottom
+        for i in range(bottom+1, n):
+            if nums[i] < nums[mp]:
+              mp = i
+        nums[bottom], nums[mp] = nums[mp], nums[bottom]
+
+def calc_area(rect):
+    p1 = rect.getP1()
+    p2 = rect.getP2()
+    p1_x = p1.getX()
+    p1_y = p1.getY()
+    p2_x = p2.getX()
+    p2_y = p2.getY()
+
+
 if __name__ == '__main__':
-    # num_list = read_data('data_sorted.txt')
+    num_list = read_data('test.txt')
     # print(is_in_linear(5, num_list))
-    pass
+    selection_sort(num_list)
+    print(num_list)
