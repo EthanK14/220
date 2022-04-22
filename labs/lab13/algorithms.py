@@ -10,6 +10,7 @@ Certificate of Authenticity
 I certify that this assignment is entirely my own work
 """
 
+from graphics import Rectangle, Point
 
 def read_data(file_name):
     num_file = open(file_name, 'r')  # opens the file for reading
@@ -56,12 +57,13 @@ def is_in_binary(search_val, values):
 
 def selection_sort(nums):
     n = len(nums)
-    for bottom in range(n-1):
+    for bottom in range(n - 1):
         mp = bottom
-        for i in range(bottom+1, n):
+        for i in range(bottom + 1, n):
             if nums[i] < nums[mp]:
-              mp = i
+                mp = i
         nums[bottom], nums[mp] = nums[mp], nums[bottom]
+
 
 def calc_area(rect):
     p1 = rect.getP1()
@@ -70,10 +72,33 @@ def calc_area(rect):
     p1_y = p1.getY()
     p2_x = p2.getX()
     p2_y = p2.getY()
+    side_1 = abs(p1_x - p2_x)
+    side_2 = abs(p1_y - p2_y)
+    area = side_1 * side_2
+    return area
+
+
+def rect_sort(rectangles):
+    rect_len = len(rectangles)
+    for bottom in range(rect_len - 1):
+        mp = bottom
+        for i in range(bottom + 1, rect_len):
+            if calc_area(rectangles[i]) < calc_area(rectangles[mp]):
+                mp = i
+        rectangles[bottom], rectangles[mp] = rectangles[mp], rectangles[bottom]
+
 
 
 if __name__ == '__main__':
-    num_list = read_data('test.txt')
-    # print(is_in_linear(5, num_list))
-    selection_sort(num_list)
-    print(num_list)
+    # num_list = read_data('test.txt')
+    # # print(is_in_linear(5, num_list))
+    # rect_big = Rectangle(Point(100, 100), Point(250, 300))
+    # rect_small = Rectangle(Point(50, 50), Point(10, 10))
+    # rect_mid = Rectangle(Point(100, 100), Point(150, 200))
+    # print(calc_area(rect_small))
+    # print(calc_area(rect_mid))
+    # print(calc_area(rect_big))
+    # rect_list = [rect_big, rect_small, rect_mid]
+    # rect_sort(rect_list)
+    # print(rect_list)
+    pass
